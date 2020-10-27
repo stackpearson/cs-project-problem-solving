@@ -4,14 +4,40 @@
 
 # The input string will never be empty and you do not need to validate for different data types.
 
+def containsBrk(st):
+    brk = '\t'
+    for char in st:
+        if brk in st:
+            return True
+        else:
+            return False
+
 def csShortestWord(input_str):
-    # convert our string to a list of strings
-    split_string = input_str.split(" ")
-    # determine the length of shortest word
-    shortest_word = len(min(split_string, key = len))
-    # return the length of the shortest element
-    return shortest_word
+    # #check for special chars
+    
+    # for string in input_str:
+    #     if brk in string:
+    #         brkPosition = input_str.find(brk)
+    #         split_string1 = input_str.split(brk)
+    #         shortest_word1 = len(min(split_string1, key = len))
+    #         return shortest_word1
+    brk ='\t'
+    if containsBrk(input_str):
+        brkPosition = input_str.find(brk)
+        split_string1 = input_str.split(brk)
+        shortest_word1 = len(min(split_string1, key = len))
+        return shortest_word1
+   
+    else:
+        split_string2 = input_str.split(" ")
+        shortest_word2 = len(min(split_string2, key = len))
+        return shortest_word2
+
+    
 
 
 
-print(csShortestWord('Always code as if the guy who ends up maintaining your code will be the most violent psychopath ever who knows where you live'))
+# print(csShortestWord('Always code as if the guy who ends up maintaining your code will be the most violent psychopath ever who knows where you live'))
+
+print(csShortestWord('appleasdfasdfasdfabcde'))
+# print(containsBrk('apple\tabcde'))
